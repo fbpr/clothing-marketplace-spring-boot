@@ -1,5 +1,6 @@
 package com.clothingmarketplace.api.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,5 +27,6 @@ public class Merchant {
     private String phoneNumber;
 
     @OneToMany(mappedBy = "merchant", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Product> products;
 }
