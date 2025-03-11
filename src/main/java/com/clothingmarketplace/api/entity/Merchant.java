@@ -1,7 +1,10 @@
 package com.clothingmarketplace.api.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,4 +25,8 @@ public class Merchant {
     private String email;
     @Column(name = "phone_number")
     private String phoneNumber;
+
+    @OneToMany(mappedBy = "merchant", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Product> products;
 }

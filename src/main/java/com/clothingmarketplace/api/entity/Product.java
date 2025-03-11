@@ -1,5 +1,6 @@
 package com.clothingmarketplace.api.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,4 +23,9 @@ public class Product {
     private Double price;
     @Column(name = "stock")
     private Integer stock;
+
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "merchant_id", nullable = false)
+    private Merchant merchant;
 }
