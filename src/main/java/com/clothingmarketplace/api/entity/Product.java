@@ -22,4 +22,8 @@ public class Product {
     private Double price;
     @Column(name = "stock")
     private Integer stock;
+
+    @ManyToOne
+    @JoinColumn(name = "merchant_id", nullable = false)
+    private Merchant merchant;
 }

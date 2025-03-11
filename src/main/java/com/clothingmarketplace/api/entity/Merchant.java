@@ -3,6 +3,8 @@ package com.clothingmarketplace.api.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Builder
@@ -22,4 +24,7 @@ public class Merchant {
     private String email;
     @Column(name = "phone_number")
     private String phoneNumber;
+
+    @OneToMany(mappedBy = "merchant", cascade = CascadeType.ALL)
+    private List<Product> products;
 }
